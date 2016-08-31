@@ -1,6 +1,6 @@
 
 import java.util.ArrayList;
-
+//Node class modeled after github version
 public class TreeNode {
 
 	private SlidingBoard s;

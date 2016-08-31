@@ -30,7 +30,7 @@ public class BreadthFirstBot extends SlidingPlayer{
 					ArrayList<SlidingMove> childPath = (ArrayList<SlidingMove>) curr.getPath().clone();
 					childPath.add(s);
 					TreeNode newNode = new TreeNode(newState, childPath);
-					breadthTree.push(newNode);
+					breadthTree.add(newNode);
 				}
 			}
 			curr = breadthTree.poll();

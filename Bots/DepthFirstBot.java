@@ -2,7 +2,8 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
-//Uses github code
+
+//Uses github code, does not work for most 3x3 puzzles
 public class DepthFirstBot extends SlidingPlayer {
 
 	private ArrayList<SlidingMove> path;
@@ -15,7 +16,7 @@ public class DepthFirstBot extends SlidingPlayer {
 
 	public ArrayList<SlidingMove> dfs(SlidingBoard sb){
 
-		Stack<TreeNode> breadthTree = new Stack<TreeNode>();
+		Stack<TreeNode> depthTree = new Stack<TreeNode>();
 		HashSet<String> prevStates = new HashSet<String>();
 		TreeNode curr = new TreeNode(sb, new ArrayList<SlidingMove>());
 
@@ -31,10 +32,10 @@ public class DepthFirstBot extends SlidingPlayer {
 					ArrayList<SlidingMove> childPath = (ArrayList<SlidingMove>) curr.getPath().clone();
 					childPath.add(s);
 					TreeNode newNode = new TreeNode(newState, childPath);
-					breadthTree.push(newNode);
+					depthTree.push(newNode);
 				}
 			}
-			curr = breadthTree.pop();
+			curr = depthTree.pop();
 		}
 
 		return curr.getPath();
