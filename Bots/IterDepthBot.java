@@ -17,10 +17,13 @@ public class IterDepthBot extends SlidingPlayer {
 		Stack<TreeNode> depthTree = new Stack<TreeNode>();
 		HashSet<String> prevStates = new HashSet<String>();
 		TreeNode curr = new TreeNode(sb, new ArrayList<SlidingMove>());
-		int currDepth = 0;
+
 
 		while(!curr.getS().isSolved()){
-			maxDepth++;
+			int currDepth = curr.getPath().size();
+			if(currDepth == maxDepth){
+				maxDepth++;
+			}
 			if(currDepth < maxDepth){
 				ArrayList<SlidingMove> legalMoves = curr.getS().getLegalMoves();
 				for(SlidingMove s: legalMoves){
@@ -35,7 +38,6 @@ public class IterDepthBot extends SlidingPlayer {
 						depthTree.push(newNode);
 					}
 				}
-				currDepth++;
 				curr = depthTree.pop();
 			}
 		}
