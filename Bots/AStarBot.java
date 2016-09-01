@@ -20,11 +20,12 @@ public class AStarBot extends SlidingPlayer{
 			for(int c = 0; c < curr.size; c++){
 				int goal_num = r*curr.size+c;
 				if(curr.board[r][c] != goal_num){
-					//Seems pretty good except for corner cases
-					int diff = Math.abs(curr.board[r][c] - goal_num);
-					int row_diff = (int) (diff/curr.size);
-					int col_diff = diff % curr.size;
+					int row_diff = (int) (curr.board[r][c]/curr.size);
+					int col_diff = curr.board[r][c] % curr.size;
 					counter += row_diff + col_diff;
+					if(Math.abs(curr.board[r][c]-goal_num) < curr.size){
+						counter += 2;
+					}
 				}
 			}
 		}
