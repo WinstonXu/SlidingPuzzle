@@ -1,6 +1,14 @@
 
 import java.util.ArrayList;
-//Node class modeled after github version
+/**
+ * 
+ * @author Winston
+ *Node modeled after Matthew's github code
+ *Used in breadth and depth first searches
+ *Only has getter and setter methods
+ *
+ *@param SlidingBoard, ArrayList<SlidingMove>
+ */
 public class TreeNode {
 
 	private SlidingBoard s;

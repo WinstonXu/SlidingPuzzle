@@ -1,7 +1,14 @@
 import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashSet;
-//Uses github code
+/**
+ * 
+ * @author Winston
+ *Uses breadth first search of state trees to find solved board
+ *Modeled after Matthew's github code
+ *@param SlidingBoard
+ *
+ */
 public class BreadthFirstBot extends SlidingPlayer{
 
 	private ArrayList<SlidingMove> path;
@@ -11,7 +18,13 @@ public class BreadthFirstBot extends SlidingPlayer{
 		super(sb);
 		path = bfs(sb);
 	}
-
+	/**
+	 * Breadth first search implemented with Java's ArrayDeque object
+	 * Returns path from starting board to solved board
+	 * 
+	 * @param SlidingBoard
+	 * @return ArrayList<SlidingMove>
+	 */
 	public ArrayList<SlidingMove> bfs(SlidingBoard sb){
 		
 		ArrayDeque<TreeNode> breadthTree = new ArrayDeque<TreeNode>();
@@ -38,7 +51,12 @@ public class BreadthFirstBot extends SlidingPlayer{
 		
 		return curr.getPath();
 	}
-
+	/**
+	 * Returns moves one by one from path returned by breadth first search algorithm
+	 * 
+	 * @param SlidingBoard
+	 * @result SlidingMove
+	 */
 	public SlidingMove makeMove(SlidingBoard b){
 
 		move_number++;

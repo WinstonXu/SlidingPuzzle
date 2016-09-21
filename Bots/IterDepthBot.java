@@ -1,7 +1,14 @@
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
-//Uses github code, Does not work for most 3x3 arrays
+/**
+ * 
+ * @author Winston
+ *Bot using Iterative Depth First search to go through state tree
+ *Modeled after github code
+ *
+ *@param SlidingBoard
+ */
 public class IterDepthBot extends SlidingPlayer {
 
 	private ArrayList<SlidingMove> path;
@@ -11,7 +18,13 @@ public class IterDepthBot extends SlidingPlayer {
 		super(_sb);
 		path = idfs(_sb, 0);
 	}
-
+	/**
+	 * Iterative depth first search implemented with Java's Stack object
+	 * Returns path from starting board to solved board
+	 * 
+	 * @param SlidingBoard, int
+	 * @return ArrayList<SlidingMove>
+	 */
 	public ArrayList<SlidingMove> idfs(SlidingBoard sb, int maxDepth){
 
 		Stack<TreeNode> depthTree = new Stack<TreeNode>();
@@ -44,7 +57,12 @@ public class IterDepthBot extends SlidingPlayer {
 
 		return curr.getPath();
 	}
-
+	/**
+	 * Returns moves one by one from path returned by iterative depth first search algorithm
+	 * 
+	 * @param SlidingBoard
+	 * @result SlidingMove
+	 */
 	public SlidingMove makeMove(SlidingBoard b){
 
 		move_number++;

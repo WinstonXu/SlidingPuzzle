@@ -3,7 +3,15 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Stack;
 
-//Uses github code, does not work for most 3x3 puzzles
+/**
+ * 
+ * @author Winston
+ *Bot using depth first searcht to go through state tree
+ *Does not consistently work on 3x3 puzzles-i.e. gets really lucky to solve
+ *Modeled after github code
+ *
+ *@param SlidingBoard
+ */
 public class DepthFirstBot extends SlidingPlayer {
 
 	private ArrayList<SlidingMove> path;
@@ -13,7 +21,13 @@ public class DepthFirstBot extends SlidingPlayer {
 		super(_sb);
 		path = dfs(_sb);
 	}
-
+	/**
+	 * Depth first search implemented with Java's Stack object
+	 * Returns path from starting board to solved board
+	 * 
+	 * @param SlidingBoard
+	 * @return ArrayList<SlidingMove>
+	 */
 	public ArrayList<SlidingMove> dfs(SlidingBoard sb){
 
 		Stack<TreeNode> depthTree = new Stack<TreeNode>();
@@ -40,7 +54,12 @@ public class DepthFirstBot extends SlidingPlayer {
 
 		return curr.getPath();
 	}
-
+	/**
+	 * Returns moves one by one from path returned by depth first search algorithm
+	 * 
+	 * @param SlidingBoard
+	 * @result SlidingMove
+	 */
 	public SlidingMove makeMove(SlidingBoard b){
 
 		move_number++;
